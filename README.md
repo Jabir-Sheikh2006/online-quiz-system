@@ -1,6 +1,6 @@
 # Online Quiz System
 
-A beginner-friendly FSJP mini project built with Java 21, Spring Boot, Thymeleaf, HTML, CSS and JavaScript. The quiz uses an in-memory HTTP session, so no database or external service is required.
+A beginner-friendly FSJP mini project built with Java 25, Spring Boot, Thymeleaf, HTML, CSS and JavaScript. The quiz uses an in-memory HTTP session, so no database or external service is required.
 
 ## Features
 
@@ -13,7 +13,7 @@ A beginner-friendly FSJP mini project built with Java 21, Spring Boot, Thymeleaf
 
 ## Requirements
 
-- JDK 21 or newer
+- JDK 25 or newer
 - Maven 3.9 or newer
 
 ## Run the Project

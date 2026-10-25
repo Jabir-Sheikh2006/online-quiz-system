@@ -18,7 +18,7 @@
     <description>FSJP mini project for an online Java quiz</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
     </properties>
 
     <dependencies>
