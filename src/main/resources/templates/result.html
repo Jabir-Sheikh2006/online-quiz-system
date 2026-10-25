@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="page-shell home-shell">
+    <section class="result-panel">
+        <p class="eyebrow" th:text="${timeExpired ? 'Time limit reached' : 'Quiz complete'}">Quiz complete</p>
+        <div class="result-ring" th:classappend="${passed ? 'passed' : 'failed'}">
+            <strong th:text="${percentage} + '%'">80%</strong>
+            <span>score</span>
+        </div>
+
+        <h1 th:text="${passed ? 'Well done!' : 'Keep learning'}">Well done!</h1>
+        <p class="lead" th:text="${passed ? 'You passed the Java fundamentals quiz.' : 'A little more practice will get you there.'}">Result summary</p>
+
+        <div class="result-summary">
+            <div><span>Correct answers</span><strong th:text="${score} + '/' + ${totalQuestions}">8/10</strong></div>
+            <div><span>Status</span><strong th:text="${passed ? 'PASS' : 'FAIL'}" th:classappend="${passed ? 'pass-status' : 'fail-status'}">PASS</strong></div>
+        </div>
+
+        <form th:action="@{/quiz/start}" method="post">
+            <button class="primary-button" type="submit"><span aria-hidden="true">↻</span> Retry Quiz</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

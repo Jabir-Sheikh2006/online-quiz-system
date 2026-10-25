@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Quiz System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="page-shell home-shell">
+    <section class="home-panel">
+        <div class="brand-mark">JS</div>
+        <p class="eyebrow">Java skills assessment</p>
+        <h1>Online Quiz System</h1>
+        <p class="lead">Test your Java fundamentals across 10 focused questions. You have 10 minutes to complete the challenge.</p>
+
+        <div class="quiz-facts">
+            <div><strong>10</strong><span>Questions</span></div>
+            <div><strong>10</strong><span>Minutes</span></div>
+            <div><strong>50%</strong><span>To pass</span></div>
+        </div>
+
+        <form th:action="@{/quiz/start}" method="post">
+            <button class="primary-button" type="submit">Start Quiz <span aria-hidden="true">→</span></button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

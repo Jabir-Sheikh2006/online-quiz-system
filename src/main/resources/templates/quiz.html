@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Java Quiz</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<main class="page-shell quiz-shell">
+    <section class="quiz-panel">
+        <header class="quiz-header">
+            <div>
+                <p class="eyebrow">Java fundamentals</p>
+                <p class="question-count">Question <strong th:text="${questionNumber}">1</strong> of <span th:text="${totalQuestions}">10</span></p>
+            </div>
+            <div class="timer" id="timer" role="timer" aria-live="polite">
+                <span class="timer-label">Time left</span>
+                <strong id="timeText">10:00</strong>
+            </div>
+        </header>
+
+        <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-fill" th:style="'width:' + ${progress} + '%'" th:attr="aria-valuenow=${progress}"></div>
+        </div>
+
+        <form id="answerForm" class="question-form" th:action="@{/quiz/answer}" method="post">
+            <h1 th:text="${question.text}">Question text</h1>
+
+            <fieldset>
+                <legend class="sr-only">Choose one answer</legend>
+                <label class="answer-option" th:each="option, stat : ${question.options}">
+                    <input type="radio" name="answer" th:value="${stat.index}" required>
+                    <span class="option-letter" th:text="${stat.index == 0 ? 'A' : stat.index == 1 ? 'B' : stat.index == 2 ? 'C' : 'D'}">A</span>
+                    <span th:text="${option}">Answer</span>
+                </label>
+            </fieldset>
+
+            <button id="nextButton" class="primary-button next-button" type="submit">
+                <span th:text="${lastQuestion ? 'Submit Quiz' : 'Next Question'}">Next Question</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </form>
+    </section>
+</main>
+<script th:inline="javascript">
+    const secondsLeft = /*[[${secondsLeft}]]*/ 600;
+</script>
+<script th:src="@{/js/quiz.js}"></script>
+</body>
+</html>
